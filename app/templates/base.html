@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Glansbaggen G:A{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Glansbaggen G:A</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Hem</a> |
+            <a href="{{ url_for('rules') }}">Regler</a> |
+            <a href="{{ url_for('contact') }}">Kontakt</a> |
+            <a href="{{ url_for('chat') }}">Chatt</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        &copy; {{ 2025 }} Glansbaggen G:A Samfällighet
+    </footer>
+</body>
+</html>
