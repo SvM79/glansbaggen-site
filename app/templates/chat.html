@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head><title>Chat Assistant</title></head>
+<body>
+<h1>Ask the Glansbot!</h1>
+<textarea id="user-input"></textarea>
+<button onclick="sendMessage()">Send</button>
+<pre id="response"></pre>
+<script>
+async function sendMessage() {
+  const message = document.getElementById('user-input').value;
+  const res = await fetch('/chat', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({message})
+  });
+  const data = await res.json();
+  document.getElementById('response').innerText = data.reply;
+}
+</script>
+</body>
+</html>
